@@ -1,6 +1,9 @@
 import numpy as np
 import pickle
 from flask import Flask, request, render_template
+from azure.devops.connection import Connection
+from msrest.authentication import BasicAuthentication
+import pprint
 
 app = Flask(__name__)
 model = pickle.load(open("model.pkl", 'rb'))
@@ -19,9 +22,7 @@ def index():
 
 @app.route("/predict", methods=['GET', 'POST'])
 def predict():
-    from azure.devops.connection import Connection
-from msrest.authentication import BasicAuthentication
-import pprint
+
 
 # Fill in with your personal access token and org URL
 personal_access_token = 'gvmxrhhfgsvuuuurzto6mgbd4iwbvte4zajgt3sxp2izhqw2535q'

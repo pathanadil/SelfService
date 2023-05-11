@@ -23,9 +23,9 @@ def index():
 @app.route("/predict", methods=['GET', 'POST'])
 def predict():
 
-
     # Fill in with your personal access token and org URL
-    personal_access_token = 'gvmxrhhfgsvuuuurzto6mgbd4iwbvte4zajgt3sxp2izhqw2535q'
+    #personal_access_token = 'wzgh5o4f7osyirvxdy3l2rwoq6es2feqwjcz6qkfwfhqhp2ghsha'
+    personal_access_token = 'iaychvpf23q4olefxi46ujmk3oz77mcpnsza5g57wl5tbc6w64ja'
     organization_url = 'https://dev.azure.com/AdilPathan'
 
     # Create a connection to the org
@@ -34,9 +34,12 @@ def predict():
 
     # Get a client (the "core" client provides access to projects, teams, etc)
     core_client = connection.clients.get_core_client()
+    #pprint.pprint(core_client)
 
     # Get the first page of projects
+    # Get the first page of projects
     get_projects_response = core_client.get_projects()
+    #print(get_projects_response)
     index = 0
     while get_projects_response is not None:
         for project in get_projects_response.value:
